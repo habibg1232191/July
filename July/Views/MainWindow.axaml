@@ -1,0 +1,74 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:July.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:July.Views.Controls"
+        xmlns:views="clr-namespace:July.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="July.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="July"
+        MinWidth="400" MinHeight="300"
+        Background="#212121"
+        TransparencyLevelHint="None">
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+    <Grid RowDefinitions="Auto,*" Margin="0, 20,0,0">
+        <Grid Grid.Row="0" ColumnDefinitions="21,Auto,*" VerticalAlignment="Top">
+            <Border Classes="dividers" Grid.Column="0" />
+            <Border Margin="6,0" Grid.Column="1" Width="265" Height="34" BorderBrush="#666666" BorderThickness="2">
+                <TextBox SelectionForegroundBrush="#666666" SelectionBrush="Black" Text="{Binding SearchQuery}"
+                         Margin="1" Foreground="White" FontSize="14" CaretBrush="White" />
+            </Border>
+            <Border Classes="dividers" Grid.Column="2"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <!-- <controls:AnimatedVisibility views:MainWindow.EnableAnimations="True" Classes="fade-in fade-out" -->
+            <!--     VerticalAlignment="Top" HorizontalAlignment="Center" -->
+            <!--     Visibility="{Binding IsVisible}"> -->
+            <!--     <TextBlock Text="Animated Control" FontSize="35" Foreground="White"/> -->
+            <!-- </controls:AnimatedVisibility> -->
+            <!-- <Button Content="Click To Visible" FontSize="30" Foreground="White" -->
+            <!--         VerticalAlignment="Bottom" HorizontalAlignment="Center" -->
+            <!--         Command="{Binding VisibleChange}"/> -->
+            
+            <!-- <controls:AsyncImage -->
+            <!--     Source="https://w.wallhaven.cc/full/4d/wallhaven-4doev3.jpg" -->
+            <!--     Width="{Binding $parent.Width}" -->
+            <!--     Height="{Binding $parent.Height}" -->
+            <!--     HorizontalAlignment="Center" -->
+            <!--     VerticalAlignment="Center"/> -->
+            
+            <TextBlock
+                IsVisible="{Binding !Wallpapers.Count, Mode=TwoWay}"
+                Text="Нет результатов || Загрузка..." FontSize="20" Foreground="White" FontWeight="Bold"
+                VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            
+            <ScrollViewer IsVisible="{Binding !!Wallpapers.Count}" Margin="4,6,4,4" x:Name="MainScrollViewer">
+                <ItemsControl ClipToBounds="True" x:Name="ItemsControl" Items="{Binding Wallpapers}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <controls:GridPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid PointerReleased="LoadFullWallpaper" Margin="5">
+                                <controls:AsyncImage
+                                    Width="275" Height="180"
+                                    Source="{Binding PreviewImageUrl}" />
+                                <Border VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="#3D3D3D">
+                                    <TextBlock
+                                        Text="{Binding SizeImage}" FontSize="14" Foreground="White" Margin="8,4" />
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

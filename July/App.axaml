@@ -1,0 +1,17 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:July"
+             x:Class="July.App">
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml" />
+        <!-- <FluentTheme Mode="Light"/> -->
+        <StyleInclude Source="avares://July/Assets/Styles/MainStyle.axaml" />
+        <StyleInclude Source="avares://July/Views/Controls/AsyncImage.axaml" />
+        <StyleInclude Source="avares://July/Views/Controls/MediaView.axaml" />
+        <StyleInclude Source="avares://July/Views/Controls/AnimatedVisibility.axaml" />
+    </Application.Styles>
+</Application>

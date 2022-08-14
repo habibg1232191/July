@@ -1,0 +1,17 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:July.Views.Controls">
+    <Design.PreviewWith>
+        <controls:AsyncImage />
+    </Design.PreviewWith>
+
+    <Style Selector="controls|AsyncImage">
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Image Stretch="UniformToFill" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" 
+                    Name="Image" Source="{TemplateBinding Source}"/>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

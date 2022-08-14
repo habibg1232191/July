@@ -1,0 +1,56 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:July.ViewModels"
+        xmlns:views="clr-namespace:July.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="July.Views.NotificationWindow"
+        Title="NotificationWindow"
+        ShowInTaskbar="False"
+        SystemDecorations="None"
+        CanResize="False"
+        SizeToContent="WidthAndHeight"
+        Topmost="True"
+        TransparencyLevelHint="Blur"
+        Background="Transparent"
+        MinWidth="0" MinHeight="0">
+
+    <Design.DataContext>
+        <viewModels:NotificationWindowViewModel />
+    </Design.DataContext>
+
+    <ItemsPresenter Name="Presenter" Items="{Binding Notifications}">
+
+        <ItemsPresenter.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Vertical" />
+            </ItemsPanelTemplate>
+        </ItemsPresenter.ItemsPanel>
+
+        <ItemsPresenter.ItemTemplate>
+            <DataTemplate>
+                <Border Margin="2">
+                    <Border.Background>
+                        <SolidColorBrush 
+                            Color="#212121"
+                            Opacity="0.4"/>
+                    </Border.Background>
+                    <!-- <ExperimentalAcrylicBorder.Material> -->
+                    <!--     <ExperimentalAcrylicMaterial -->
+                    <!--         BackgroundSource="Digger" -->
+                    <!--         TintColor="Black" -->
+                    <!--         TintOpacity="1" -->
+                    <!--         MaterialOpacity="0.35" /> -->
+                    <!-- </ExperimentalAcrylicBorder.Material> -->
+
+                    <TextBlock
+                        Text="{Binding Message}"
+                        Margin="14" Foreground="White" FontSize="14"
+                        VerticalAlignment="Top" HorizontalAlignment="Left" />
+                </Border>
+            </DataTemplate>
+        </ItemsPresenter.ItemTemplate>
+    </ItemsPresenter>
+
+</Window>

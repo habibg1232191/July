@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="July/App.axaml" value="July/July.csproj" />
+        <entry key="July/Assets/Styles/Fluent.axaml" value="July/July.csproj" />
+        <entry key="July/Assets/Styles/MainStyle.axaml" value="July/July.csproj" />
+        <entry key="July/Views/Controls/AnimatedVisbility.axaml" value="July/July.csproj" />
+        <entry key="July/Views/Controls/AnimatedVisibility.axaml" value="July/July.csproj" />
+        <entry key="July/Views/Controls/AsyncImage.axaml" value="July/July.csproj" />
+        <entry key="July/Views/Controls/LazyList.axaml" value="July/July.csproj" />
+        <entry key="July/Views/Controls/LazyPanels/LazyList.axaml" value="July/July.csproj" />
+        <entry key="July/Views/Controls/MediaView.axaml" value="July/July.csproj" />
+        <entry key="July/Views/MainWindow.axaml" value="July/July.csproj" />
+        <entry key="July/Views/NotificationWindow.axaml" value="July/July.csproj" />
+        <entry key="July/Views/WallpaperWindow.axaml" value="July/July.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

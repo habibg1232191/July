@@ -1,0 +1,16 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="Grid > Border.dividers">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Height" Value="1"/>
+        <Setter Property="Background">
+            <SolidColorBrush Color="#666666" Opacity="0.22"/>
+        </Setter>
+    </Style>
+</Styles>

@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "July", "July\July.csproj", "{9D0D30E5-92FF-4502-95C5-390B90E0F01A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WallhavenPlugin", "WallhavenPlugin\WallhavenPlugin.csproj", "{37AB69D2-C33E-401B-AED1-624A9D7A1129}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "July.Api", "July.Api\July.Api.csproj", "{AA1454CD-CCF5-40D8-A4CC-FC34A23442C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "July.Plugins", "July.Plugins", "{76FF285A-EBB2-4669-AE34-807C666CD8F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AD1C27BD-A455-40AF-BBE9-23B5787A1C01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D0D30E5-92FF-4502-95C5-390B90E0F01A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D0D30E5-92FF-4502-95C5-390B90E0F01A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D0D30E5-92FF-4502-95C5-390B90E0F01A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D0D30E5-92FF-4502-95C5-390B90E0F01A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37AB69D2-C33E-401B-AED1-624A9D7A1129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37AB69D2-C33E-401B-AED1-624A9D7A1129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37AB69D2-C33E-401B-AED1-624A9D7A1129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37AB69D2-C33E-401B-AED1-624A9D7A1129}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA1454CD-CCF5-40D8-A4CC-FC34A23442C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA1454CD-CCF5-40D8-A4CC-FC34A23442C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA1454CD-CCF5-40D8-A4CC-FC34A23442C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA1454CD-CCF5-40D8-A4CC-FC34A23442C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37AB69D2-C33E-401B-AED1-624A9D7A1129} = {76FF285A-EBB2-4669-AE34-807C666CD8F9}
+		{76FF285A-EBB2-4669-AE34-807C666CD8F9} = {AD1C27BD-A455-40AF-BBE9-23B5787A1C01}
+		{9D0D30E5-92FF-4502-95C5-390B90E0F01A} = {AD1C27BD-A455-40AF-BBE9-23B5787A1C01}
+		{AA1454CD-CCF5-40D8-A4CC-FC34A23442C3} = {AD1C27BD-A455-40AF-BBE9-23B5787A1C01}
+	EndGlobalSection
+EndGlobal

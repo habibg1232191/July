@@ -1,0 +1,57 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:July.Views.Controls">
+    <Design.PreviewWith>
+        <controls:AnimatedVisibility />
+    </Design.PreviewWith>
+
+    <Style Selector="controls|AnimatedVisibility">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter 
+                    Name="Presenter"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"/>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="controls|AnimatedVisibility.fade-in">
+        <!-- <Setter Property="Opacity" Value="1"/> -->
+        <Setter Property="ShowAnimation">
+            <Animation Duration="0:0:1" Easing="CubicEaseOut">
+                <!-- <KeyFrame Cue="0%"> -->
+                <!--     <KeyFrame.Setters> -->
+                <!--         <Setter Property="Opacity" Value="0"/> -->
+                <!--         <Setter Property="Margin" Value="200,0,0,0"/> -->
+                <!--     </KeyFrame.Setters> -->
+                <!-- </KeyFrame> -->
+                <KeyFrame Cue="100%">
+                    <KeyFrame.Setters>
+                        <Setter Property="Opacity" Value="1"/>
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                    </KeyFrame.Setters>
+                </KeyFrame>
+            </Animation>
+        </Setter>
+    </Style>
+    
+    <Style Selector="controls|AnimatedVisibility.fade-out">
+        <!-- <Setter Property="Opacity" Value="0"/> -->
+        <Setter Property="HideAnimation">
+            <Animation Duration="0:0:1" Easing="CubicEaseOut">
+                <KeyFrame Cue="100%">
+                    <KeyFrame.Setters>
+                        <Setter Property="Opacity" Value="0"/>
+                        <Setter Property="Margin" Value="200,0,0,0"/>
+                    </KeyFrame.Setters>
+                </KeyFrame>
+            </Animation>
+        </Setter>
+    </Style>
+    
+    <Style Selector="controls|AnimatedVisibility.fade-out[IsVisible=False]">
+        <Setter Property="Opacity" Value="0"/>
+        <Setter Property="Margin" Value="200,0,0,0"/>
+    </Style>
+</Styles>
