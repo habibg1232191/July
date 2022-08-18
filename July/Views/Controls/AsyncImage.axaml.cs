@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.LogicalTree;
 using Avalonia.Media.Imaging;
@@ -13,9 +15,10 @@ using ReactiveUI;
 
 namespace July.Views.Controls;
 
+[PseudoClasses("loading")]
 public class AsyncImage : TemplatedControl
 {
-    private static List<AsyncImageCache> _imageCaches = new();
+    private static readonly List<AsyncImageCache> ImageCaches = new();
 
     private readonly HttpClient _client = new();
     private CancellationToken _cancellationToken;
@@ -24,11 +27,21 @@ public class AsyncImage : TemplatedControl
     public static readonly StyledProperty<string> SourceProperty =
         AvaloniaProperty.Register<AsyncImage, string>(nameof(Source));
 
+    private static readonly StyledProperty<DownloadProgressChangedEventHandler?> DownloadProgressChangedEventProperty =
+        AvaloniaProperty.Register<AsyncImage, DownloadProgressChangedEventHandler?>(nameof(DownloadProgressChangedEvent));
+    
     private Image? _imageControl;
+    
     public string Source
     {
         get => GetValue(SourceProperty);
         set => SetValue(SourceProperty, value);
+    }
+
+    public DownloadProgressChangedEventHandler? DownloadProgressChangedEvent
+    {
+        get => GetValue(DownloadProgressChangedEventProperty);
+        set => SetValue(DownloadProgressChangedEventProperty, value);
     }
 
     public AsyncImage()
@@ -47,27 +60,31 @@ public class AsyncImage : TemplatedControl
         _cancellationToken = _cancellationTokenSource.Token;
         try
         {
+            PseudoClasses.Set(":loading", true);
             var bitmap = await GetAsyncBitmapFromUrl(newValue);
             if (_imageControl != null)
                 _imageControl.Source = bitmap;
             _cancellationToken.ThrowIfCancellationRequested();
-            
-            if (_imageCaches.Count >= 20)
-                _imageCaches.RemoveAt(0);
-            
-            _imageCaches.Add(new AsyncImageCache(newValue, bitmap));
+
+            // if (ImageCaches.Count >= 20)
+            //     ImageCaches.RemoveAt(0);
+
+            ImageCaches.Add(new AsyncImageCache(newValue, bitmap));
+            PseudoClasses.Set(":loading", false);
         }
-        catch (Exception e)
+        catch (OperationCanceledException)
         {
             // ignored
-            Console.WriteLine(e);
-            Console.WriteLine(newValue);
+        }
+        catch (InvalidOperationException)
+        {
+            // ignored
         }
     }
 
     private async Task<Bitmap> GetAsyncBitmapFromUrl(string url)
     {
-        var imageFind = _imageCaches.FirstOrDefault(x => x.Url == url);
+        var imageFind = ImageCaches.FirstOrDefault(x => x.Url == url);
         if (imageFind != null)
             return imageFind.Bitmap;
         using var response = await _client.GetAsync(url, _cancellationToken);

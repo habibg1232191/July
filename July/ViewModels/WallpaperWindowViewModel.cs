@@ -32,7 +32,6 @@ public class WallpaperWindowViewModel : ViewModelBase
         try
         {
             TestSource = await eventArgs.WallpaperInfo.GetFullImage(_cancellationToken);
-            Console.WriteLine(TestSource);
         }
         catch (Exception e)
         {

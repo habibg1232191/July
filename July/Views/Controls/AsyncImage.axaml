@@ -6,12 +6,22 @@
     </Design.PreviewWith>
 
     <Style Selector="controls|AsyncImage">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.4" Easing="CubicEaseInOut"/>
+            </Transitions>
+        </Setter>
         <!-- Set Defaults -->
+        <Setter Property="Opacity" Value="1"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <Image Stretch="UniformToFill" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" 
                     Name="Image" Source="{TemplateBinding Source}"/>
             </ControlTemplate>
         </Setter>
+    </Style>
+    
+    <Style Selector="controls|AsyncImage:loading">
+        <Setter Property="Opacity" Value="0"/>
     </Style>
 </Styles>

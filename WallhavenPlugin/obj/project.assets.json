@@ -206,6 +206,19 @@
           "lib/netstandard2.0/Avalonia.Skia.dll": {}
         }
       },
+      "Avalonia.Svg/0.10.16": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "0.10.16",
+          "Svg.Model": "0.5.16"
+        },
+        "compile": {
+          "lib/net6.0/Avalonia.Svg.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Avalonia.Svg.dll": {}
+        }
+      },
       "Avalonia.Win32/0.10.17": {
         "type": "package",
         "dependencies": {
@@ -247,6 +260,15 @@
           "lib/net5.0/DynamicData.dll": {}
         }
       },
+      "ExCSS/4.1.4": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/ExCSS.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/ExCSS.dll": {}
+        }
+      },
       "FFmpeg.AutoGen/5.0.0": {
         "type": "package",
         "compile": {
@@ -254,6 +276,15 @@
         },
         "runtime": {
           "lib/netstandard2.1/FFmpeg.AutoGen.dll": {}
+        }
+      },
+      "Fizzler/1.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Fizzler.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fizzler.dll": {}
         }
       },
       "HarfBuzzSharp/2.8.2-preview.178": {
@@ -668,6 +699,15 @@
           "lib/net5.0/ReactiveUI.dll": {}
         }
       },
+      "ShimSkiaSharp/0.5.16": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/ShimSkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/ShimSkiaSharp.dll": {}
+        }
+      },
       "SkiaSharp/2.88.1-preview.1": {
         "type": "package",
         "dependencies": {
@@ -770,6 +810,35 @@
         },
         "runtime": {
           "lib/net5.0/Splat.dll": {}
+        }
+      },
+      "Svg.Custom/0.5.16": {
+        "type": "package",
+        "dependencies": {
+          "ExCSS": "4.1.4",
+          "Fizzler": "1.2.1",
+          "System.Memory": "4.5.4",
+          "System.ObjectModel": "4.3.0",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/net6.0/Svg.Custom.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Svg.Custom.dll": {}
+        }
+      },
+      "Svg.Model/0.5.16": {
+        "type": "package",
+        "dependencies": {
+          "ShimSkiaSharp": "0.5.16",
+          "Svg.Custom": "0.5.16"
+        },
+        "compile": {
+          "lib/net6.0/Svg.Model.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Svg.Model.dll": {}
         }
       },
       "System.Buffers/4.5.1": {
@@ -937,7 +1006,7 @@
           "lib/netstandard1.6/System.Linq.Expressions.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.1/_._": {}
@@ -1284,6 +1353,7 @@
           "Avalonia.Desktop": "0.10.17",
           "Avalonia.Diagnostics": "0.10.17",
           "Avalonia.ReactiveUI": "0.10.17",
+          "Avalonia.Svg": "0.10.16",
           "FFmpeg.AutoGen": "5.0.0",
           "XamlNameReferenceGenerator": "1.3.4"
         },
@@ -1571,6 +1641,19 @@
         "lib/netstandard2.0/Avalonia.Skia.xml"
       ]
     },
+    "Avalonia.Svg/0.10.16": {
+      "sha512": "pFaOdYTiBRx3lWBMN6fyYuhijQw2ts+RMw+4SwTVV5pv/0bAzDPBHJU2bO0dhHn+DVAxECb9jGp2P5N6OyVxiA==",
+      "type": "package",
+      "path": "avalonia.svg/0.10.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "avalonia.svg.0.10.16.nupkg.sha512",
+        "avalonia.svg.nuspec",
+        "lib/net6.0/Avalonia.Svg.dll",
+        "lib/netstandard2.0/Avalonia.Svg.dll"
+      ]
+    },
     "Avalonia.Win32/0.10.17": {
       "sha512": "hDBM1lcKRaBRHIgRGCakeS78nUwd/HvzcaGjaKHOzzyXv6nrKgbY+wOaepCjes9A6md/+7M+SnTxv+q03JLs3g==",
       "type": "package",
@@ -1620,6 +1703,22 @@
         "lib/uap10.0.16299/DynamicData.xml"
       ]
     },
+    "ExCSS/4.1.4": {
+      "sha512": "6eMFdIazPCVfr9Gios0nCUYq3/02SewnDGvS+aCi/RWaAtoETz2fNT+H//+k0vjoDJBHXkWdVG8EkxUydxtyxA==",
+      "type": "package",
+      "path": "excss/4.1.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "excss.4.1.4.nupkg.sha512",
+        "excss.nuspec",
+        "lib/net452/ExCSS.dll",
+        "lib/net5.0/ExCSS.dll",
+        "lib/net6.0/ExCSS.dll",
+        "lib/netcoreapp3.1/ExCSS.dll",
+        "lib/netstandard2.0/ExCSS.dll"
+      ]
+    },
     "FFmpeg.AutoGen/5.0.0": {
       "sha512": "NOneQXI+BeZ295yDJ0Jv5m9TyP48Re4YUr6PIfi3q74ja6tZbWReMGFv0b3T420rtT37RvSBkipd940BFDJDgQ==",
       "type": "package",
@@ -1640,6 +1739,22 @@
         "lib/netstandard2.0/FFmpeg.AutoGen.xml",
         "lib/netstandard2.1/FFmpeg.AutoGen.dll",
         "lib/netstandard2.1/FFmpeg.AutoGen.xml"
+      ]
+    },
+    "Fizzler/1.2.1": {
+      "sha512": "nSudK8LeKSu7T/N/6NVZNjUniMYagfzVo8yT2XwZ9BOVbWYQH3EQ8oviuztJ7AfO8PlRDsYIWboZuzIg94hhzQ==",
+      "type": "package",
+      "path": "fizzler/1.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "COPYING.txt",
+        "fizzler.1.2.1.nupkg.sha512",
+        "fizzler.nuspec",
+        "lib/netstandard1.0/Fizzler.dll",
+        "lib/netstandard1.0/Fizzler.pdb",
+        "lib/netstandard2.0/Fizzler.dll",
+        "lib/netstandard2.0/Fizzler.pdb"
       ]
     },
     "HarfBuzzSharp/2.8.2-preview.178": {
@@ -2170,6 +2285,19 @@
         "reactiveui.nuspec"
       ]
     },
+    "ShimSkiaSharp/0.5.16": {
+      "sha512": "NYWAIHcHer+damnEOoUqhtA0ttC7c4s4lKXBI0Ahemaynko32qVGJc0cvWRJypx36+INqqRf0y74vkxWfkk0Fw==",
+      "type": "package",
+      "path": "shimskiasharp/0.5.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/ShimSkiaSharp.dll",
+        "lib/netstandard2.0/ShimSkiaSharp.dll",
+        "shimskiasharp.0.5.16.nupkg.sha512",
+        "shimskiasharp.nuspec"
+      ]
+    },
     "SkiaSharp/2.88.1-preview.1": {
       "sha512": "BvnJSq10bfDD9szhOsLzD0lwnxD5oO7C/e2A8l0QjVhUQEZrcLji2HcSmqnYxmqFxfJQtini4/5+9q7uly12zA==",
       "type": "package",
@@ -2337,6 +2465,32 @@
         "lib/netstandard2.0/Splat.xml",
         "splat.10.0.1.nupkg.sha512",
         "splat.nuspec"
+      ]
+    },
+    "Svg.Custom/0.5.16": {
+      "sha512": "cHTZAfKeDnxttsKbjDQhKi5+6eUR8ng4W8mvChqsj23FgQYducvh4LnSuLfELFgWrozB2U5F0k2YBoqLnNspaw==",
+      "type": "package",
+      "path": "svg.custom/0.5.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Svg.Custom.dll",
+        "lib/netstandard2.0/Svg.Custom.dll",
+        "svg.custom.0.5.16.nupkg.sha512",
+        "svg.custom.nuspec"
+      ]
+    },
+    "Svg.Model/0.5.16": {
+      "sha512": "D1W2PbeG+3oT0U9DnwK/moxx8TGeUIdyU7G6uGT5ekF4hpLIczYtoSJYnsP00alfWnZbiY8fk7Q4RuRfZb7CBg==",
+      "type": "package",
+      "path": "svg.model/0.5.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Svg.Model.dll",
+        "lib/netstandard2.0/Svg.Model.dll",
+        "svg.model.0.5.16.nupkg.sha512",
+        "svg.model.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -3027,22 +3181,24 @@
         "system.linq.expressions.nuspec"
       ]
     },
-    "System.Memory/4.5.3": {
-      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+    "System.Memory/4.5.4": {
+      "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
       "type": "package",
-      "path": "system.memory/4.5.3",
+      "path": "system.memory/4.5.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
         "lib/netcoreapp2.1/_._",
         "lib/netstandard1.1/System.Memory.dll",
         "lib/netstandard1.1/System.Memory.xml",
         "lib/netstandard2.0/System.Memory.dll",
         "lib/netstandard2.0/System.Memory.xml",
         "ref/netcoreapp2.1/_._",
-        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.4.5.4.nupkg.sha512",
         "system.memory.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"

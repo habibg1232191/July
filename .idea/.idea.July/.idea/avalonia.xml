@@ -12,6 +12,7 @@
         <entry key="July/Views/Controls/LazyList.axaml" value="July/July.csproj" />
         <entry key="July/Views/Controls/LazyPanels/LazyList.axaml" value="July/July.csproj" />
         <entry key="July/Views/Controls/MediaView.axaml" value="July/July.csproj" />
+        <entry key="July/Views/Controls/RippleEffect.axaml" value="July/July.csproj" />
         <entry key="July/Views/MainWindow.axaml" value="July/July.csproj" />
         <entry key="July/Views/NotificationWindow.axaml" value="July/July.csproj" />
         <entry key="July/Views/WallpaperWindow.axaml" value="July/July.csproj" />

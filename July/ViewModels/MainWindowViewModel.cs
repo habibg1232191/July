@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Threading;
@@ -17,6 +18,11 @@ public delegate void WallpaperChangedEvent(WallpaperChangedEventArgs eventArgs);
 
 public record WallpaperChangedEventArgs(IWallpaperInfo WallpaperInfo);
 
+public enum MainEnum
+{
+    Close, Hide
+}
+
 public class MainWindowViewModel : ViewModelBase
 {
     public WallpaperChangedEvent? WallpaperChangedEvent;
@@ -28,13 +34,15 @@ public class MainWindowViewModel : ViewModelBase
     private ObservableCollection<IWallpaperInfo> _wallpapers = new();
     private string _searchQuery = "";
     private bool _isVisible = true;
+    
+    private MainEnum _enumCollection = MainEnum.Close;
 
     public ObservableCollection<IWallpaperInfo> Wallpapers
     {
         get => _wallpapers;
         private set => this.RaiseAndSetIfChanged(ref _wallpapers, value);
     }
-    
+
     public string SearchQuery
     {
         get => _searchQuery;
@@ -45,6 +53,12 @@ public class MainWindowViewModel : ViewModelBase
     {
         get => _isVisible;
         set => this.RaiseAndSetIfChanged(ref _isVisible, value);
+    }
+
+    public MainEnum EnumCollection
+    {
+        get => _enumCollection;
+        private set => this.RaiseAndSetIfChanged(ref _enumCollection, value);
     }
 
     private ReactiveCommand<Unit, String> Refresh { get; set; }
@@ -59,11 +73,16 @@ public class MainWindowViewModel : ViewModelBase
             .Where(_ => true)
             .Subscribe(OnSearchStringChanged);
         OnSearchStringChanged(SearchQuery);
+        NetworkChange.NetworkAvailabilityChanged += (sender, args) =>
+        {
+            Console.WriteLine(args.IsAvailable ? "Network connected!" : "Network dis connected!");
+        };
     }
 
     public void VisibleChange()
     {
         IsVisible = !IsVisible;
+        EnumCollection = EnumCollection == MainEnum.Close ? MainEnum.Hide : MainEnum.Close;
     }
 
     private async void OnSearchStringChanged(string newValue)
@@ -74,11 +93,10 @@ public class MainWindowViewModel : ViewModelBase
 
     private async Task TryLoadWallpapers()
     {
-        Console.WriteLine($"Search Query: {SearchQuery}; Cancellation Token: {_cancellationToken.IsCancellationRequested}");
         CloseLastTask();
         if (!await InternetSession.IsInternetConnection() || _cancellationToken.IsCancellationRequested)
         {
-            NotificationWindowViewModel.MainNotificationViewModel?.Notify("Нет подключения к интернету");
+            NotificationWindowViewModel.MainNotificationViewModel?.Notify(new Notification("Нет подключения к интернету"), TimeSpan.FromSeconds(10));
             return;
         }
         try
@@ -88,7 +106,7 @@ public class MainWindowViewModel : ViewModelBase
             _cancellationToken.ThrowIfCancellationRequested();
             Wallpapers = new ObservableCollection<IWallpaperInfo>(addedWallpapers.ToList());
         }
-        catch (OperationCanceledException)
+        catch (Exception)
         {
             Console.WriteLine("Close Task");
             // CloseLastTask();

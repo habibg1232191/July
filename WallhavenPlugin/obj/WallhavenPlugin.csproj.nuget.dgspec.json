@@ -59,6 +59,10 @@
               "target": "Package",
               "version": "[0.10.17, )"
             },
+            "Avalonia.Svg": {
+              "target": "Package",
+              "version": "[0.10.16, )"
+            },
             "FFmpeg.AutoGen": {
               "target": "Package",
               "version": "[5.0.0, )"

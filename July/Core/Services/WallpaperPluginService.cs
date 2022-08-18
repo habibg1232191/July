@@ -46,11 +46,9 @@ public static class WallpaperPluginService
         
         _dllFileWatcher.Changed += (_, args) =>
         {
-            Console.WriteLine($"Changed: {args.Name}; ChangeType: {args.ChangeType}");
         };
         _dllFileWatcher.Created += (_, args) =>
         {
-            Console.WriteLine($"Created: {args.Name}");
         };
         _dllFileWatcher.IncludeSubdirectories = true;
         _dllFileWatcher.EnableRaisingEvents = true;

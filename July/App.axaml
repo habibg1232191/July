@@ -8,7 +8,6 @@
 
     <Application.Styles>
         <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml" />
-        <!-- <FluentTheme Mode="Light"/> -->
         <StyleInclude Source="avares://July/Assets/Styles/MainStyle.axaml" />
         <StyleInclude Source="avares://July/Views/Controls/AsyncImage.axaml" />
         <StyleInclude Source="avares://July/Views/Controls/MediaView.axaml" />

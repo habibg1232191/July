@@ -1,7 +1,7 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Input;
-using Avalonia.Win32;
+using Avalonia.Layout;
 using July.Core.Plugin;
 using July.ViewModels;
 
@@ -9,11 +9,10 @@ namespace July.Views;
 
 public partial class MainWindow : Window
 {
-
     public MainWindow()
     {
         InitializeComponent();
-        MainScrollViewer.ScrollChanged += ScrollChanged;
+        // MainScrollViewer.ScrollChanged += ScrollChanged;
     }
 
     private void ScrollChanged(object? sender, ScrollChangedEventArgs e)
@@ -53,14 +52,9 @@ public partial class MainWindow : Window
         return true;
     }
 
-    private void LoadFullWallpaper(object? sender, PointerReleasedEventArgs e)
+    private void LoadFullWallpaper(object? sender, PointerReleasedEventArgs _)
     {
         if (sender is Control { DataContext: IWallpaperInfo wallpaperInfo } && DataContext is MainWindowViewModel mainWindowViewModel)
-            mainWindowViewModel.WallpaperChangedEvent.Invoke(new WallpaperChangedEventArgs(wallpaperInfo));
+            mainWindowViewModel.WallpaperChangedEvent?.Invoke(new WallpaperChangedEventArgs(wallpaperInfo));
     }
-}
-
-class WindowIm : WindowImpl
-{
-    
 }
